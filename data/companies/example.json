@@ -1,0 +1,174 @@
+{
+  "company_id": "example-tech",
+  "basic_info": {
+    "name": "Example Tech Corp",
+    "industry": "Software & Internet",
+    "website": "https://example.com",
+    "headquarters": "San Francisco, CA",
+    "size": "5,000-10,000 employees",
+    "type": "Public"
+  },
+  "target_positions": [
+    {
+      "position_id": "sse-l4",
+      "title": "Senior Software Engineer",
+      "level": "L4",
+      "location": "Beijing / Remote",
+      "team": "Cloud Infrastructure",
+      "status": "interviewing"
+    },
+    {
+      "position_id": "sse-l5",
+      "title": "Staff Software Engineer",
+      "level": "L5",
+      "location": "Beijing",
+      "team": "Platform Engineering",
+      "status": "researching"
+    }
+  ],
+  "job_descriptions": {
+    "sse-l4": {
+      "title": "Senior Software Engineer - Cloud Infrastructure",
+      "description_source": "https://example.com/careers/sse-l4",
+      "scraped_at": "2024-01-10T15:30:00Z",
+      "raw_text": "About the Team:\nCloud Infrastructure team builds and maintains the core platform that powers all of Example Tech's products. We handle petabytes of data, serve billions of requests daily, and ensure 99.99% uptime. Our tech stack includes Go, Python, Kubernetes, and AWS.\n\nResponsibilities:\n- Design and build highly scalable distributed systems\n- Improve system reliability and performance\n- Mentor junior engineers and drive technical excellence\n- Participate in on-call rotation\n\nMinimum Qualifications:\n- 5+ years of software development experience\n- Strong proficiency in Go, Python, or Java\n- Experience with distributed systems and microservices\n- Bachelor's degree in CS or equivalent\n\nPreferred Qualifications:\n- Experience with Kubernetes and container orchestration\n- Knowledge of cloud platforms (AWS/GCP/Azure)\n- Experience with high-traffic production systems\n- MS in Computer Science",
+      "structured_analysis": {
+        "required_skills": [
+          "Go",
+          "Python",
+          "Java",
+          "Distributed Systems",
+          "Microservices",
+          "Reliability Engineering"
+        ],
+        "preferred_skills": [
+          "Kubernetes",
+          "Container Orchestration",
+          "AWS",
+          "GCP",
+          "Azure",
+          "High-traffic Systems"
+        ],
+        "bonus_skills": [
+          "SRE",
+          "Monitoring Systems",
+          "Observability"
+        ],
+        "responsibilities": [
+          "Design and build highly scalable distributed systems",
+          "Improve system reliability and performance",
+          "Mentor junior engineers and drive technical excellence",
+          "Participate in on-call rotation"
+        ],
+        "minimum_qualifications": [
+          "5+ years of software development experience",
+          "Strong proficiency in Go, Python, or Java",
+          "Experience with distributed systems and microservices",
+          "Bachelor's degree in CS or equivalent"
+        ],
+        "preferred_qualifications": [
+          "Experience with Kubernetes and container orchestration",
+          "Knowledge of cloud platforms (AWS/GCP/Azure)",
+          "Experience with high-traffic production systems",
+          "MS in Computer Science"
+        ]
+      },
+      "skill_match_analysis": {
+        "matched_skills": [
+          {
+            "skill": "Go",
+            "proficiency": "中级",
+            "required": "熟练"
+          },
+          {
+            "skill": "Python",
+            "proficiency": "专家",
+            "required": "熟练"
+          },
+          {
+            "skill": "Distributed Systems",
+            "proficiency": "熟练"
+          },
+          {
+            "skill": "Microservices",
+            "proficiency": "熟练"
+          }
+        ],
+        "partial_match_skills": [
+          {
+            "skill": "Java",
+            "proficiency": "熟练",
+            "required": "熟练"
+          }
+        ],
+        "missing_skills": [
+          {
+            "skill": "Kubernetes",
+            "importance": "preferred"
+          },
+          {
+            "skill": "Container Orchestration",
+            "importance": "preferred"
+          }
+        ],
+        "match_score": 85.5
+      }
+    }
+  },
+  "application_status": {
+    "applied_date": "2024-01-12T10:30:00Z",
+    "last_contact": "2024-01-15T14:00:00Z",
+    "next_steps": "Prepare for technical round 2 - System Design interview on Jan 20",
+    "referrals": [
+      "Zhang Wei (L5 Engineer at Example Tech)"
+    ],
+    "notes": [
+      {
+        "date": "2024-01-12T10:30:00Z",
+        "note": "Applied online through careers portal"
+      },
+      {
+        "date": "2024-01-15T14:00:00Z",
+        "note": "Phone screen with recruiter went well. Moving to technical round 1"
+      }
+    ]
+  },
+  "research_notes": {
+    "company_culture": "Fast-paced, data-driven, emphasis on technical excellence. Known for 'move fast and break things' philosophy but with strong engineering practices. Good work-life balance compared to other Big Tech. Focus on impact and ownership.",
+    "interview_process": "Typical process: 1) Recruiter screen (30 min) 2) Technical screen (1 hour, LeetCode-style) 3) System design (45 min) 4) Onsite: 3-4 back-to-back interviews including coding, system design, and behavioral. Total process takes 2-4 weeks.",
+    "known_questions": [
+      "Design a distributed key-value store",
+      "Implement LRU cache",
+      "Design a rate limiter",
+      "Behavioral: Tell me about a time you had to make a difficult technical decision",
+      "Behavioral: Describe a situation where you had to mentor a junior engineer"
+    ],
+    "tips": [
+      "Focus on system design trade-offs and scalability",
+      "Be prepared to discuss past projects in depth",
+      "Show enthusiasm for distributed systems and infrastructure",
+      "Example Tech values 'bias for action' and 'customer obsession' - give examples",
+      "Prepare questions about team culture and tech stack"
+    ],
+    "recent_news": [
+      {
+        "date": "2024-01-08T00:00:00Z",
+        "headline": "Example Tech Announces New Cloud Infrastructure Platform",
+        "url": "https://technews.com/example-tech-cloud-platform"
+      },
+      {
+        "date": "2024-01-05T00:00:00Z",
+        "headline": "Example Tech Reports Strong Q4 Earnings",
+        "url": "https://finance.example.com/tech-earnings"
+      }
+    ]
+  },
+  "salary_range": {
+    "base": "$180k - $220k",
+    "bonus": "20% target",
+    "stock": "$80k - $120k/year",
+    "total": "$280k - $360k"
+  },
+  "created_at": "2024-01-10T10:00:00Z",
+  "updated_at": "2024-01-15T14:00:00Z"
+}

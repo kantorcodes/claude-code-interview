@@ -1,0 +1,359 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://claude-code-interview/schemas/analytics.schema.json",
+  "title": "Analytics Schema",
+  "description": "Schema for progress tracking and analytics data",
+  "type": "object",
+  "required": [
+    "user_id",
+    "period",
+    "overview",
+    "practice_statistics",
+    "skill_proficiency",
+    "company_progress",
+    "weak_areas",
+    "weekly_goals"
+  ],
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "User identifier",
+      "minLength": 1
+    },
+    "period": {
+      "type": "object",
+      "description": "Time period for this analytics data",
+      "required": ["start", "end"],
+      "properties": {
+        "start": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Period start date"
+        },
+        "end": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Period end date"
+        }
+      }
+    },
+    "overview": {
+      "type": "object",
+      "description": "Overall activity statistics",
+      "properties": {
+        "days_spent": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total days spent on job search activities"
+        },
+        "total_hours": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Total hours spent"
+        },
+        "average_hours_per_day": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Average hours per day"
+        },
+        "last_activity_date": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Last activity timestamp"
+        }
+      }
+    },
+    "practice_statistics": {
+      "type": "object",
+      "description": "Practice and preparation statistics",
+      "properties": {
+        "technical_questions_completed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of technical questions practiced"
+        },
+        "system_design_questions_completed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of system design questions practiced"
+        },
+        "behavioral_questions_practiced": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of behavioral questions practiced"
+        },
+        "mock_interviews_completed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Number of mock interviews completed"
+        },
+        "hours_on_practice": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Hours spent on practice"
+        },
+        "hours_on_interviews": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Hours spent in actual interviews"
+        }
+      }
+    },
+    "skill_proficiency": {
+      "type": "object",
+      "description": "Skill proficiency levels tracked over time",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "level": {
+              "type": "string",
+              "enum": ["beginner", "intermediate", "advanced", "expert"],
+              "description": "Current proficiency level"
+            },
+            "practiced_count": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of times practiced"
+            },
+            "success_rate": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Success rate percentage"
+            },
+            "last_practiced": {
+              "type": ["string", "null"],
+              "format": "date-time",
+              "description": "Last practice timestamp"
+            },
+            "improvement_trend": {
+              "type": "string",
+              "enum": ["improving", "stable", "declining"],
+              "description": "Trend over recent practice sessions"
+            }
+          }
+        }
+      }
+    },
+    "company_progress": {
+      "type": "object",
+      "description": "Application progress by company",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": ["researching", "applied", "screening", "interviewing", "offer", "rejected", "withdrawn"],
+              "description": "Current application status"
+            },
+            "stage": {
+              "type": "string",
+              "description": "Detailed stage information"
+            },
+            "interviews_completed": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of interviews completed"
+            },
+            "match_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Skill match percentage"
+            },
+            "time_invested_hours": {
+              "type": "number",
+              "minimum": 0,
+              "description": "Hours invested in this application"
+            },
+            "last_update": {
+              "type": ["string", "null"],
+              "format": "date-time",
+              "description": "Last update timestamp"
+            }
+          }
+        }
+      }
+    },
+    "weak_areas": {
+      "type": "array",
+      "description": "Identified weak areas requiring focus",
+      "items": {
+        "type": "object",
+        "properties": {
+          "area": {
+            "type": "string",
+            "description": "Weak area name"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["technical", "behavioral", "communication", "system_design"],
+            "description": "Category of weakness"
+          },
+          "severity": {
+            "type": "string",
+            "enum": ["critical", "major", "minor"],
+            "description": "Severity level"
+          },
+          "priority": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 10,
+            "description": "Priority rank (1 = highest)"
+          },
+          "improvement_plan": {
+            "type": "string",
+            "description": "Planned approach to improve"
+          },
+          "target_date": {
+            "type": ["string", "null"],
+            "format": "date-time",
+            "description": "Target date for improvement"
+          }
+        }
+      }
+    },
+    "weekly_goals": {
+      "type": "array",
+      "description": "Weekly goals and completion status",
+      "items": {
+        "type": "object",
+        "properties": {
+          "week_start": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Week start date"
+          },
+          "goals": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "goal": {
+                  "type": "string",
+                  "description": "Goal description"
+                },
+                "category": {
+                  "type": "string",
+                  "enum": ["practice", "applications", "networking", "learning"],
+                  "description": "Goal category"
+                },
+                "target": {
+                  "type": "number",
+                  "description": "Target value (e.g., number of hours, questions)"
+                },
+                "actual": {
+                  "type": "number",
+                  "description": "Actual value achieved"
+                },
+                "unit": {
+                  "type": "string",
+                  "description": "Unit of measurement (e.g., 'hours', 'questions', 'applications')"
+                },
+                "completed": {
+                  "type": "boolean",
+                  "description": "Whether goal was completed"
+                }
+              }
+            }
+          },
+          "overall_completion_rate": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "description": "Percentage of goals completed"
+          }
+        }
+      }
+    },
+    "application_funnel": {
+      "type": "object",
+      "description": "Application funnel statistics",
+      "properties": {
+        "total_applications": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total applications submitted"
+        },
+        "screening": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Applications in screening phase"
+        },
+        "interviews_scheduled": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Interviews scheduled"
+        },
+        "interviews_completed": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Interviews completed"
+        },
+        "offers_received": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Offers received"
+        },
+        "rejections": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Rejections received"
+        }
+      }
+    },
+    "interview_performance": {
+      "type": "object",
+      "description": "Interview performance metrics",
+      "properties": {
+        "total_interviews": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total interviews completed"
+        },
+        "average_rating": {
+          "type": "number",
+          "description": "Average interview performance rating"
+        },
+        "success_rate": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Percentage of interviews leading to next round"
+        },
+        "by_type": {
+          "type": "object",
+          "description": "Performance by interview type",
+          "patternProperties": {
+            ".*": {
+              "type": "object",
+              "properties": {
+                "count": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "success_rate": {
+                  "type": "number",
+                  "minimum": 0,
+                  "maximum": 100
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "created_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when analytics data was created"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when analytics data was last updated"
+    }
+  }
+}

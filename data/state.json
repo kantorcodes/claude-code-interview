@@ -1,0 +1,157 @@
+{
+  "version": "1.0",
+  "initialized": true,
+  "initialized_at": "2024-01-01T10:00:00Z",
+  "last_updated": "2024-01-15T18:00:00Z",
+  "active_companies": [
+    "example-tech",
+    "google",
+    "amazon"
+  ],
+  "pending_interviews": [
+    {
+      "company_id": "example-tech",
+      "company_name": "Example Tech Corp",
+      "position": "Senior Software Engineer",
+      "scheduled_date": "2024-01-20T14:00:00Z",
+      "interview_type": "system_design",
+      "round": 2,
+      "preparation_status": "in_progress",
+      "preparation_focus": [
+        "Design distributed key-value store",
+        "CAP theorem and consistency models",
+        "Sharding strategies",
+        "Load balancing patterns"
+      ]
+    }
+  ],
+  "in_progress_resumes": [
+    {
+      "company_id": "google",
+      "variant_name": "google-sse-l4",
+      "created_at": "2024-01-12T10:00:00Z",
+      "status": "draft",
+      "completion_percentage": 75
+    }
+  ],
+  "recent_activities": [
+    {
+      "timestamp": "2024-01-15T18:00:00Z",
+      "activity": "completed_practice",
+      "description": "Completed LeetCode #42 - Trapping Rain Water (Hard)",
+      "category": "practice"
+    },
+    {
+      "timestamp": "2024-01-15T14:00:00Z",
+      "activity": "interview_update",
+      "description": "Example Tech phone screen completed, moving to technical round 2",
+      "category": "interview"
+    },
+    {
+      "timestamp": "2024-01-14T16:00:00Z",
+      "activity": "skill_learning",
+      "description": "Studied Kubernetes fundamentals - 2 hours",
+      "category": "learning"
+    },
+    {
+      "timestamp": "2024-01-13T10:00:00Z",
+      "activity": "company_research",
+      "description": "Researched Amazon AWS team and prepared resume variant",
+      "category": "research"
+    },
+    {
+      "timestamp": "2024-01-12T11:00:00Z",
+      "activity": "mock_interview",
+      "description": "Completed mock interview - System Design: Design URL Shortener",
+      "category": "practice"
+    }
+  ],
+  "statistics": {
+    "total_companies": 3,
+    "total_interviews": 3,
+    "total_practice_hours": 35,
+    "total_interview_hours": 10,
+    "interviews_this_week": 1,
+    "practice_sessions_this_week": 8,
+    "applications_submitted": 8,
+    "active_applications": 6,
+    "offers_received": 0
+  },
+  "quick_actions": [
+    {
+      "action": "Prepare for Example Tech interview",
+      "command": "/interview/prep example-tech",
+      "priority": "high",
+      "reason": "Interview scheduled for Jan 20"
+    },
+    {
+      "action": "Complete Google resume variant",
+      "command": "/resume/optimize google sse-l4",
+      "priority": "medium",
+      "reason": "75% complete, needs finalization"
+    },
+    {
+      "action": "Practice system design",
+      "command": "/interview/simulate system-design",
+      "priority": "high",
+      "reason": "Identified as weak area"
+    },
+    {
+      "action": "Continue Kubernetes learning",
+      "command": "/skill/learn kubernetes",
+      "priority": "medium",
+      "reason": "Required by target positions"
+    }
+  ],
+  "upcoming_deadlines": [
+    {
+      "deadline": "2024-01-20T14:00:00Z",
+      "task": "Example Tech System Design Interview",
+      "type": "interview",
+      "priority": "critical"
+    },
+    {
+      "deadline": "2024-01-25T23:59:59Z",
+      "task": "Submit Amazon application",
+      "type": "application",
+      "priority": "medium"
+    },
+    {
+      "deadline": "2024-01-30T00:00:00Z",
+      "task": "Complete Kubernetes fundamentals course",
+      "type": "learning",
+      "priority": "medium"
+    }
+  ],
+  "alerts": [
+    {
+      "level": "info",
+      "message": "You have 1 interview scheduled in the next 5 days",
+      "timestamp": "2024-01-15T18:00:00Z"
+    },
+    {
+      "level": "warning",
+      "message": "System design success rate below target (62.5% vs 75% goal)",
+      "timestamp": "2024-01-14T10:00:00Z"
+    },
+    {
+      "level": "success",
+      "message": "Great progress! Algorithms proficiency improving (75% success rate)",
+      "timestamp": "2024-01-15T16:00:00Z"
+    }
+  ],
+  "preferences": {
+    "daily_practice_goal_hours": 3,
+    "weekly_application_target": 5,
+    "preferred_interview_times": ["morning", "afternoon"],
+    "timezone": "Asia/Shanghai",
+    "notifications_enabled": true,
+    "notification_methods": ["email"]
+  },
+  "system_settings": {
+    "auto_save": true,
+    "backup_enabled": true,
+    "last_backup": "2024-01-15T18:00:00Z",
+    "version": "1.0.0"
+  }
+}

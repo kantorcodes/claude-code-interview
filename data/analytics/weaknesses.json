@@ -1,0 +1,16 @@
+{
+  "metadata": {
+    "version": "1.0",
+    "last_updated": null,
+    "total_weaknesses": 0,
+    "recurring_weaknesses": 0,
+    "categories": {
+      "technical": 0,
+      "communication": 0,
+      "time_management": 0,
+      "thinking_pattern": 0,
+      "other": 0
+    }
+  },
+  "weaknesses": {}
+}

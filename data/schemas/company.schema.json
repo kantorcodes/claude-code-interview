@@ -1,0 +1,351 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://claude-code-interview/schemas/company.schema.json",
+  "title": "Company Schema",
+  "description": "Schema for company and job application data",
+  "type": "object",
+  "required": [
+    "company_id",
+    "basic_info",
+    "target_positions",
+    "job_descriptions",
+    "application_status",
+    "research_notes",
+    "salary_range"
+  ],
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Unique identifier for the company (e.g., 'google', 'amazon-aws')",
+      "minLength": 1
+    },
+    "basic_info": {
+      "type": "object",
+      "description": "Basic company information",
+      "required": ["name", "industry"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Company name",
+          "minLength": 1
+        },
+        "industry": {
+          "type": "string",
+          "description": "Industry sector"
+        },
+        "website": {
+          "type": "string",
+          "format": "uri",
+          "description": "Company website URL"
+        },
+        "headquarters": {
+          "type": "string",
+          "description": "Headquarters location"
+        },
+        "size": {
+          "type": "string",
+          "description": "Company size (e.g., '10,000+ employees')"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["Public", "Private", "Startup", "Non-profit", "Government"],
+          "description": "Company type"
+        }
+      }
+    },
+    "target_positions": {
+      "type": "array",
+      "description": "Target positions at this company",
+      "items": {
+        "type": "object",
+        "required": ["position_id", "title", "level"],
+        "properties": {
+          "position_id": {
+            "type": "string",
+            "description": "Unique position identifier"
+          },
+          "title": {
+            "type": "string",
+            "description": "Job title"
+          },
+          "level": {
+            "type": "string",
+            "enum": ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "Junior", "Mid-level", "Senior", "Staff", "Principal"],
+            "description": "Job level"
+          },
+          "location": {
+            "type": "string",
+            "description": "Job location"
+          },
+          "team": {
+            "type": "string",
+            "description": "Team or department"
+          },
+          "status": {
+            "type": "string",
+            "enum": [" researching", "applied", "screening", "interviewing", "offer", "rejected", "withdrawn"],
+            "description": "Application status"
+          }
+        }
+      }
+    },
+    "job_descriptions": {
+      "type": "object",
+      "description": "Job descriptions keyed by position_id",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "required": ["title", "raw_text", "structured_analysis"],
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Job title"
+            },
+            "description_source": {
+              "type": "string",
+              "description": "Source of the JD (e.g., URL, platform name)"
+            },
+            "scraped_at": {
+              "type": ["string", "null"],
+              "format": "date-time",
+              "description": "When the JD was scraped"
+            },
+            "raw_text": {
+              "type": "string",
+              "description": "Full raw job description text"
+            },
+            "structured_analysis": {
+              "type": "object",
+              "description": "Structured JD analysis from jd-analyzer skill",
+              "properties": {
+                "required_skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Required skills with weight 2.0"
+                },
+                "preferred_skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Preferred skills with weight 1.0"
+                },
+                "bonus_skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Bonus skills with weight 0.5"
+                },
+                "responsibilities": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Key responsibilities"
+                },
+                "minimum_qualifications": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Minimum qualifications"
+                },
+                "preferred_qualifications": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "Preferred qualifications"
+                }
+              }
+            },
+            "skill_match_analysis": {
+              "type": "object",
+              "description": "Skill matching against user resume",
+              "properties": {
+                "matched_skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "skill": {
+                        "type": "string"
+                      },
+                      "proficiency": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "description": "Skills that match JD requirements"
+                },
+                "partial_match_skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "skill": {
+                        "type": "string"
+                      },
+                      "proficiency": {
+                        "type": "string"
+                      },
+                      "required": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "description": "Skills that partially match"
+                },
+                "missing_skills": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "skill": {
+                        "type": "string"
+                      },
+                      "importance": {
+                        "type": "string",
+                        "enum": ["required", "preferred", "bonus"]
+                      }
+                    }
+                  },
+                  "description": "Skills missing from resume"
+                },
+                "match_score": {
+                  "type": "number",
+                  "description": "Overall match percentage (0-100)"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "application_status": {
+      "type": "object",
+      "description": "Application tracking data",
+      "properties": {
+        "applied_date": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "When application was submitted"
+        },
+        "last_contact": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Last communication date"
+        },
+        "next_steps": {
+          "type": "string",
+          "description": "Next action items"
+        },
+        "referrals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Employee referrals"
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "note": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "Application notes with timestamps"
+        }
+      }
+    },
+    "research_notes": {
+      "type": "object",
+      "description": "Company research and interview preparation notes",
+      "properties": {
+        "company_culture": {
+          "type": "string",
+          "description": "Notes on company culture"
+        },
+        "interview_process": {
+          "type": "string",
+          "description": "Known interview process structure"
+        },
+        "known_questions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Known or commonly asked interview questions"
+        },
+        "tips": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Tips for success at this company"
+        },
+        "recent_news": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "date": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "headline": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "Recent company news"
+        }
+      }
+    },
+    "salary_range": {
+      "type": "object",
+      "description": "Salary information",
+      "properties": {
+        "base": {
+          "type": "string",
+          "description": "Base salary range (e.g., '$150k-$200k')"
+        },
+        "bonus": {
+          "type": "string",
+          "description": "Bonus target"
+        },
+        "stock": {
+          "type": "string",
+          "description": "Stock/grant value per year"
+        },
+        "total": {
+          "type": "string",
+          "description": "Total compensation range"
+        }
+      }
+    },
+    "created_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when company data was created"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when company data was last updated"
+    }
+  }
+}

@@ -1,0 +1,220 @@
+{
+  "user_id": "user_001",
+  "period": {
+    "start": "2024-01-01T00:00:00Z",
+    "end": null
+  },
+  "overview": {
+    "days_spent": 15,
+    "total_hours": 45,
+    "average_hours_per_day": 3.0,
+    "last_activity_date": "2024-01-15T18:00:00Z"
+  },
+  "practice_statistics": {
+    "technical_questions_completed": 25,
+    "system_design_questions_completed": 8,
+    "behavioral_questions_practiced": 15,
+    "mock_interviews_completed": 3,
+    "hours_on_practice": 35,
+    "hours_on_interviews": 10
+  },
+  "skill_proficiency": {
+    "Algorithms": {
+      "level": "advanced",
+      "practiced_count": 25,
+      "success_rate": 75.0,
+      "last_practiced": "2024-01-15T16:00:00Z",
+      "improvement_trend": "improving"
+    },
+    "System Design": {
+      "level": "intermediate",
+      "practiced_count": 8,
+      "success_rate": 62.5,
+      "last_practiced": "2024-01-14T14:00:00Z",
+      "improvement_trend": "stable"
+    },
+    "Distributed Systems": {
+      "level": "advanced",
+      "practiced_count": 12,
+      "success_rate": 83.3,
+      "last_practiced": "2024-01-13T10:00:00Z",
+      "improvement_trend": "improving"
+    },
+    "Behavioral": {
+      "level": "intermediate",
+      "practiced_count": 15,
+      "success_rate": 70.0,
+      "last_practiced": "2024-01-12T11:00:00Z",
+      "improvement_trend": "improving"
+    },
+    "Go Language": {
+      "level": "intermediate",
+      "practiced_count": 10,
+      "success_rate": 65.0,
+      "last_practiced": "2024-01-11T09:00:00Z",
+      "improvement_trend": "improving"
+    },
+    "Python": {
+      "level": "expert",
+      "practiced_count": 20,
+      "success_rate": 90.0,
+      "last_practiced": "2024-01-10T15:00:00Z",
+      "improvement_trend": "stable"
+    }
+  },
+  "company_progress": {
+    "example-tech": {
+      "status": "interviewing",
+      "stage": "Technical Round 2",
+      "interviews_completed": 2,
+      "match_score": 85.5,
+      "time_invested_hours": 12,
+      "last_update": "2024-01-15T14:00:00Z"
+    },
+    "google": {
+      "status": "applied",
+      "stage": "Application Review",
+      "interviews_completed": 0,
+      "match_score": 78.0,
+      "time_invested_hours": 3,
+      "last_update": "2024-01-12T10:00:00Z"
+    },
+    "amazon": {
+      "status": "researching",
+      "stage": "Initial Research",
+      "interviews_completed": 0,
+      "match_score": 82.0,
+      "time_invested_hours": 5,
+      "last_update": "2024-01-10T08:00:00Z"
+    }
+  },
+  "weak_areas": [
+    {
+      "area": "Kubernetes and Container Orchestration",
+      "category": "technical",
+      "severity": "major",
+      "priority": 2,
+      "improvement_plan": "Complete Kubernetes certification course, practice deploying microservices to minikube, build a project using Docker and Kubernetes",
+      "target_date": "2024-02-15T00:00:00Z"
+    },
+    {
+      "area": "System Design - Scalability Patterns",
+      "category": "technical",
+      "severity": "major",
+      "priority": 3,
+      "improvement_plan": "Study 'Designing Data-Intensive Applications', practice 2 system design questions per week, review common scalability patterns",
+      "target_date": "2024-02-28T00:00:00Z"
+    },
+    {
+      "area": "Behavioral - Leadership Principles",
+      "category": "behavioral",
+      "severity": "minor",
+      "priority": 5,
+      "improvement_plan": "Prepare STAR stories for leadership principles, practice with mock interview partner",
+      "target_date": "2024-02-01T00:00:00Z"
+    },
+    {
+      "area": "Time Management in Coding Interviews",
+      "category": "communication",
+      "severity": "major",
+      "priority": 1,
+      "improvement_plan": "Practice timed coding sessions (45 min limit), focus on quick problem decomposition before coding",
+      "target_date": "2024-01-30T00:00:00Z"
+    }
+  ],
+  "weekly_goals": [
+    {
+      "week_start": "2024-01-08T00:00:00Z",
+      "goals": [
+        {
+          "goal": "Complete LeetCode practice",
+          "category": "practice",
+          "target": 10,
+          "actual": 12,
+          "unit": "questions",
+          "completed": true
+        },
+        {
+          "goal": "System design practice",
+          "category": "practice",
+          "target": 3,
+          "actual": 2,
+          "unit": "questions",
+          "completed": false
+        },
+        {
+          "goal": "Mock interviews",
+          "category": "practice",
+          "target": 2,
+          "actual": 2,
+          "unit": "interviews",
+          "completed": true
+        },
+        {
+          "goal": "Job applications",
+          "category": "applications",
+          "target": 5,
+          "actual": 3,
+          "unit": "applications",
+          "completed": false
+        }
+      ],
+      "overall_completion_rate": 75.0
+    },
+    {
+      "week_start": "2024-01-15T00:00:00Z",
+      "goals": [
+        {
+          "goal": "Complete LeetCode practice",
+          "category": "practice",
+          "target": 10,
+          "actual": 5,
+          "unit": "questions",
+          "completed": false
+        },
+        {
+          "goal": "System design practice",
+          "category": "practice",
+          "target": 4,
+          "actual": 2,
+          "unit": "questions",
+          "completed": false
+        },
+        {
+          "goal": "Kubernetes learning",
+          "category": "learning",
+          "target": 5,
+          "actual": 3,
+          "unit": "hours",
+          "completed": false
+        }
+      ],
+      "overall_completion_rate": 50.0
+    }
+  ],
+  "application_funnel": {
+    "total_applications": 8,
+    "screening": 3,
+    "interviews_scheduled": 2,
+    "interviews_completed": 3,
+    "offers_received": 0,
+    "rejections": 2
+  },
+  "interview_performance": {
+    "total_interviews": 3,
+    "average_rating": 3.7,
+    "success_rate": 66.7,
+    "by_type": {
+      "technical": {
+        "count": 2,
+        "success_rate": 100.0
+      },
+      "system_design": {
+        "count": 1,
+        "success_rate": 0.0
+      }
+    }
+  },
+  "created_at": "2024-01-01T00:00:00Z",
+  "updated_at": "2024-01-15T18:00:00Z"
+}

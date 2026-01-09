@@ -1,0 +1,314 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://claude-code-interview/schemas/resume.schema.json",
+  "title": "Resume Schema",
+  "description": "Schema for user resume data including personal info, skills, experience, and education",
+  "type": "object",
+  "required": [
+    "version",
+    "personal_info",
+    "summary",
+    "skills",
+    "work_experience",
+    "projects",
+    "education",
+    "certifications",
+    "languages"
+  ],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Schema version",
+      "pattern": "^\\d+\\.\\d+$"
+    },
+    "created_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when resume was created"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when resume was last updated"
+    },
+    "personal_info": {
+      "type": "object",
+      "description": "Personal contact and identification information",
+      "required": ["name", "email"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Full name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Phone number"
+        },
+        "location": {
+          "type": "string",
+          "description": "City, State/Country"
+        },
+        "linkedin": {
+          "type": "string",
+          "description": "LinkedIn profile URL"
+        },
+        "github": {
+          "type": "string",
+          "description": "GitHub profile URL"
+        },
+        "website": {
+          "type": "string",
+          "description": "Personal website URL"
+        }
+      }
+    },
+    "summary": {
+      "type": "string",
+      "description": "Professional summary or objective"
+    },
+    "skills": {
+      "type": "object",
+      "description": "Technical and professional skills organized by category",
+      "required": [
+        "programming_languages",
+        "frameworks",
+        "databases",
+        "tools",
+        "concepts"
+      ],
+      "properties": {
+        "programming_languages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Programming languages known"
+        },
+        "frameworks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Frameworks and libraries"
+        },
+        "databases": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Database technologies"
+        },
+        "tools": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Development tools and platforms"
+        },
+        "concepts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Technical concepts and methodologies"
+        }
+      }
+    },
+    "work_experience": {
+      "type": "array",
+      "description": "Work experience entries",
+      "items": {
+        "type": "object",
+        "required": ["company", "title", "start_date"],
+        "properties": {
+          "company": {
+            "type": "string",
+            "description": "Company name"
+          },
+          "title": {
+            "type": "string",
+            "description": "Job title"
+          },
+          "location": {
+            "type": "string",
+            "description": "Job location"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date (e.g., 'Jan 2020' or '2020-01')"
+          },
+          "end_date": {
+            "type": ["string", "null"],
+            "description": "End date or null for current position"
+          },
+          "description": {
+            "type": "string",
+            "description": "Job description and responsibilities"
+          },
+          "achievements": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Key achievements and impacts"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Technologies used"
+          }
+        }
+      }
+    },
+    "projects": {
+      "type": "array",
+      "description": "Personal or professional projects",
+      "items": {
+        "type": "object",
+        "required": ["name", "description"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Project name"
+          },
+          "description": {
+            "type": "string",
+            "description": "Project description"
+          },
+          "technologies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Technologies used"
+          },
+          "link": {
+            "type": "string",
+            "description": "Project URL"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Project start date"
+          },
+          "end_date": {
+            "type": ["string", "null"],
+            "description": "Project end date or null if ongoing"
+          },
+          "highlights": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Key highlights and achievements"
+          }
+        }
+      }
+    },
+    "education": {
+      "type": "array",
+      "description": "Education history",
+      "items": {
+        "type": "object",
+        "required": ["school", "degree", "field"],
+        "properties": {
+          "school": {
+            "type": "string",
+            "description": "School or university name"
+          },
+          "degree": {
+            "type": "string",
+            "description": "Degree obtained (e.g., 'Bachelor of Science')"
+          },
+          "field": {
+            "type": "string",
+            "description": "Field of study (e.g., 'Computer Science')"
+          },
+          "location": {
+            "type": "string",
+            "description": "School location"
+          },
+          "start_date": {
+            "type": "string",
+            "description": "Start date"
+          },
+          "end_date": {
+            "type": "string",
+            "description": "Graduation date"
+          },
+          "gpa": {
+            "type": "string",
+            "description": "GPA if applicable"
+          },
+          "honors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Honors and awards"
+          }
+        }
+      }
+    },
+    "certifications": {
+      "type": "array",
+      "description": "Professional certifications",
+      "items": {
+        "type": "object",
+        "required": ["name", "issuer"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Certification name"
+          },
+          "issuer": {
+            "type": "string",
+            "description": "Issuing organization"
+          },
+          "issue_date": {
+            "type": "string",
+            "description": "Issue date"
+          },
+          "expiration_date": {
+            "type": ["string", "null"],
+            "description": "Expiration date or null if no expiration"
+          },
+          "credential_id": {
+            "type": "string",
+            "description": "Credential ID"
+          },
+          "url": {
+            "type": "string",
+            "description": "Certification URL"
+          }
+        }
+      }
+    },
+    "languages": {
+      "type": "array",
+      "description": "Language proficiency",
+      "items": {
+        "type": "object",
+        "required": ["language", "proficiency"],
+        "properties": {
+          "language": {
+            "type": "string",
+            "description": "Language name"
+          },
+          "proficiency": {
+            "type": "string",
+            "enum": ["Native", "Fluent", "Advanced", "Intermediate", "Basic"],
+            "description": "Proficiency level"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,371 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://claude-code-interview/schemas/interview.schema.json",
+  "title": "Interview Schema",
+  "description": "Schema for interview records including feedback and analysis",
+  "type": "object",
+  "required": [
+    "interview_id",
+    "company_id",
+    "position_id",
+    "interview_type",
+    "questions_asked",
+    "overall_feedback",
+    "self_reflection"
+  ],
+  "properties": {
+    "interview_id": {
+      "type": "string",
+      "description": "Unique identifier for the interview",
+      "minLength": 1
+    },
+    "company_id": {
+      "type": "string",
+      "description": "Reference to company_id in company data",
+      "minLength": 1
+    },
+    "position_id": {
+      "type": "string",
+      "description": "Reference to position_id in company data",
+      "minLength": 1
+    },
+    "interview_date": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of interview"
+    },
+    "interview_type": {
+      "type": "string",
+      "enum": ["technical", "system_design", "behavioral", "hr", "phone_screen", "onsite", "take_home", "coding_challenge"],
+      "description": "Type of interview"
+    },
+    "round": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Interview round number (0 for initial screen)"
+    },
+    "interviewer": {
+      "type": "object",
+      "description": "Interviewer information",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Interviewer name"
+        },
+        "role": {
+          "type": "string",
+          "description": "Interviewer's role (e.g., 'Engineering Manager', 'Senior Engineer')"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "Interviewer's email"
+        },
+        "linkedin": {
+          "type": "string",
+          "description": "Interviewer's LinkedIn profile"
+        }
+      }
+    },
+    "duration_minutes": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Actual duration of interview in minutes"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["in_person", "video", "phone", "coding_platform"],
+      "description": "Interview format"
+    },
+    "platform": {
+      "type": "string",
+      "description": "Platform used (e.g., 'Zoom', 'Google Meet', 'CodeSignal')"
+    },
+    "questions_asked": {
+      "type": "array",
+      "description": "Questions asked during the interview",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "Question text"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["algorithm", "data_structure", "system_design", "behavioral", "culture", "resume_based", "coding"],
+            "description": "Question category"
+          },
+          "difficulty": {
+            "type": "string",
+            "enum": ["easy", "medium", "hard", "unknown"],
+            "description": "Question difficulty"
+          },
+          "user_response": {
+            "type": "string",
+            "description": "User's response summary"
+          },
+          "performance": {
+            "type": "string",
+            "enum": ["excellent", "good", "fair", "poor", "no_response"],
+            "description": "How well the user answered"
+          },
+          "follow_ups": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Follow-up questions asked"
+          },
+          "notes": {
+            "type": "string",
+            "description": "Additional notes about this question"
+          }
+        }
+      }
+    },
+    "overall_feedback": {
+      "type": "object",
+      "description": "Overall feedback from the interview",
+      "properties": {
+        "strengths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "What went well"
+        },
+        "areas_for_improvement": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Areas that need improvement"
+        },
+        "next_steps": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Action items for next interview"
+        },
+        "overall_rating": {
+          "type": "string",
+          "enum": ["very_positive", "positive", "neutral", "negative", "very_negative"],
+          "description": "Overall interview outcome"
+        }
+      }
+    },
+    "self_reflection": {
+      "type": "object",
+      "description": "User's self-reflection after the interview",
+      "properties": {
+        "what_went_well": {
+          "type": "string",
+          "description": "What the user felt went well"
+        },
+        "what_could_improve": {
+          "type": "string",
+          "description": "What the user could improve"
+        },
+        "lessons_learned": {
+          "type": "string",
+          "description": "Key takeaways from this interview"
+        },
+        "confidence_level": {
+          "type": "string",
+          "enum": ["very_confident", "confident", "neutral", "not_confident", "very_not_confident"],
+          "description": "User's confidence level during interview"
+        }
+      }
+    },
+    "weakness_analysis": {
+      "type": "object",
+      "description": "Detailed weakness analysis from interview-coach skill",
+      "properties": {
+        "analysis_timestamp": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "When weakness analysis was performed"
+        },
+        "overall_assessment": {
+          "type": "object",
+          "properties": {
+            "total_issues_identified": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "critical_issues": {
+              "type": "integer",
+              "minimum": 0,
+              "description": "Number of critical issues requiring immediate attention"
+            },
+            "overall_score": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100,
+              "description": "Overall interview performance score"
+            },
+            "improvement_priority": {
+              "type": "string",
+              "enum": ["high", "medium", "low"],
+              "description": "Priority level for addressing weaknesses"
+            }
+          }
+        },
+        "technical_weaknesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": ["algorithm", "data_structure", "system_design", "coding_syntax", "optimization", "language_specific"]
+              },
+              "issue": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "major", "minor"]
+              },
+              "recommendation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "communication_weaknesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": ["clarity", "conciseness", "articulation", "active_listening", "question_asking"]
+              },
+              "issue": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "major", "minor"]
+              },
+              "recommendation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "time_management_issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "issue": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "major", "minor"]
+              },
+              "recommendation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "thinking_pattern_issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string",
+                "enum": ["problem_decomposition", "edge_cases", "approach_selection", "trade_off_analysis"]
+              },
+              "issue": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "major", "minor"]
+              },
+              "recommendation": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "other_weaknesses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "category": {
+                "type": "string"
+              },
+              "issue": {
+                "type": "string"
+              },
+              "severity": {
+                "type": "string",
+                "enum": ["critical", "major", "minor"]
+              },
+              "recommendation": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "next_interview": {
+      "type": "object",
+      "description": "Information about next interview round",
+      "properties": {
+        "scheduled": {
+          "type": ["boolean", "null"],
+          "description": "Whether next interview is scheduled"
+        },
+        "date": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "Date of next interview"
+        },
+        "type": {
+          "type": ["string", "null"],
+          "description": "Type of next interview"
+        },
+        "round": {
+          "type": ["integer", "null"],
+          "description": "Next round number"
+        },
+        "preparation_focus": {
+          "type": ["array", "null"],
+          "items": {
+            "type": "string"
+          },
+          "description": "Areas to focus on for next interview"
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Tags for categorizing and filtering interviews"
+    },
+    "created_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when interview record was created"
+    },
+    "updated_at": {
+      "type": ["string", "null"],
+      "format": "date-time",
+      "description": "ISO 8601 timestamp when interview record was last updated"
+    }
+  }
+}

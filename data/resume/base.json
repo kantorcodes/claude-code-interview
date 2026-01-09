@@ -1,0 +1,168 @@
+{
+  "version": "1.0",
+  "created_at": "2024-01-15T10:00:00Z",
+  "updated_at": "2024-01-15T10:00:00Z",
+  "personal_info": {
+    "name": "李明",
+    "email": "liming.dev@example.com",
+    "phone": "+86 138-1234-5678",
+    "location": "北京, 中国",
+    "linkedin": "linkedin.com/in/liming-dev",
+    "github": "github.com/liming-dev",
+    "website": "liming.dev"
+  },
+  "summary": "拥有5年经验的全栈软件工程师，专注于构建高可扩展的分布式系统和Web应用。精通Python、Java、JavaScript/TypeScript技术栈，有丰富的微服务架构设计和实施经验。热衷于开源社区，维护多个GitHub项目并获得1000+ stars。擅长解决复杂技术难题，具有良好的团队协作和技术领导能力。",
+  "skills": {
+    "programming_languages": [
+      "Python (专家)",
+      "TypeScript (熟练)",
+      "Java (熟练)",
+      "Go (中级)",
+      "JavaScript (熟练)"
+    ],
+    "frameworks": [
+      "React",
+      "Next.js",
+      "Django",
+      "Spring Boot",
+      "FastAPI",
+      "Node.js",
+      "Express"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Redis",
+      "Elasticsearch"
+    ],
+    "tools": [
+      "Docker",
+      "Kubernetes",
+      "Git",
+      "Jenkins",
+      "AWS (EC2, S3, Lambda, RDS)",
+      "Linux",
+      "Nginx"
+    ],
+    "concepts": [
+      "微服务架构",
+      "分布式系统",
+      "RESTful API设计",
+      "CI/CD",
+      "测试驱动开发 (TDD)",
+      "敏捷开发",
+      "系统设计",
+      "性能优化"
+    ]
+  },
+  "work_experience": [
+    {
+      "company": "字节跳动",
+      "title": "高级软件工程师",
+      "location": "北京",
+      "start_date": "2022-03",
+      "end_date": null,
+      "description": "负责抖音电商后台核心系统的开发和优化，带领5人团队完成微服务架构升级。",
+      "achievements": [
+        "主导设计并实现高并发订单处理系统，峰值QPS从5k提升至50k，系统稳定性达到99.99%",
+        "优化微服务架构，将服务间调用延迟降低60%，减少资源消耗40%",
+        "建立CI/CD流水线，部署时间从2小时缩短至15分钟，提升团队开发效率",
+        "指导3名初级工程师，帮助团队整体技术能力提升"
+      ],
+      "technologies": ["Java", "Spring Cloud", "Redis", "MySQL", "Kubernetes", "AWS"]
+    },
+    {
+      "company": "美团",
+      "title": "软件工程师",
+      "location": "北京",
+      "start_date": "2019-07",
+      "end_date": "2022-02",
+      "description": "参与外卖配送系统的开发和维护，负责实时调度引擎和数据同步服务。",
+      "achievements": [
+        "开发实时配送路径优化算法，平均配送时间缩短12%",
+        "实现分布式缓存方案，降低数据库负载70%",
+        "参与系统重构，将单体应用拆分为10+微服务，提升系统可维护性"
+      ],
+      "technologies": ["Python", "Django", "PostgreSQL", "Redis", "Kafka", "Docker"]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Distributed Task Scheduler",
+      "description": "一个可扩展的分布式任务调度框架，支持定时任务、工作流编排和故障恢复。采用Go语言开发，使用gRPC进行服务间通信，Etcd作为元数据存储。",
+      "technologies": ["Go", "gRPC", "Etcd", "Docker", "React"],
+      "link": "github.com/liming-dev/task-scheduler",
+      "start_date": "2021-06",
+      "end_date": null,
+      "highlights": [
+        "GitHub获得1.5k+ stars，被3家公司用于生产环境",
+        "支持水平扩展，单集群可处理100k+任务/秒",
+        "实现优雅故障转移和数据一致性保证"
+      ]
+    },
+    {
+      "name": "Real-time Analytics Dashboard",
+      "description": "基于Web的实时数据分析仪表板，支持多种数据源接入和自定义可视化配置。使用WebSocket实现实时数据推送，支持百万级数据点的流畅渲染。",
+      "technologies": ["TypeScript", "React", "Node.js", "WebSocket", "MongoDB"],
+      "link": "github.com/liming-dev/analytics-dashboard",
+      "start_date": "2020-09",
+      "end_date": "2021-12",
+      "highlights": [
+        "支持拖拽式仪表板配置，用户可自定义布局",
+        "实现高效的数据聚合算法，查询性能优于商业产品50%",
+        "开源后获得800+ stars"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "school": "清华大学",
+      "degree": "计算机科学硕士",
+      "field": "计算机科学与技术",
+      "location": "北京",
+      "start_date": "2017-09",
+      "end_date": "2019-06",
+      "gpa": "3.8/4.0",
+      "honors": ["优秀毕业生", "国家奖学金", "一等奖学金"]
+    },
+    {
+      "school": "浙江大学",
+      "degree": "计算机科学学士",
+      "field": "软件工程",
+      "location": "杭州",
+      "start_date": "2013-09",
+      "end_date": "2017-06",
+      "gpa": "3.7/4.0",
+      "honors": ["浙江省优秀毕业生", "三次一等奖学金"]
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "issue_date": "2021-08",
+      "expiration_date": "2024-08",
+      "credential_id": "AWS-ASA-12345678",
+      "url": "https://aws.amazon.com/verification/"
+    },
+    {
+      "name": "Google Cloud Professional Cloud Architect",
+      "issuer": "Google Cloud",
+      "issue_date": "2022-03",
+      "expiration_date": "2025-03",
+      "credential_id": "GCP-CA-87654321",
+      "url": "https://cloud.google.com/certification"
+    }
+  ],
+  "languages": [
+    {
+      "language": "中文",
+      "proficiency": "Native"
+    },
+    {
+      "language": "英语",
+      "proficiency": "Advanced"
+    }
+  ]
+}

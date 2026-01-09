@@ -1,0 +1,51 @@
+# Data files (may contain sensitive personal information)
+data/resume/*.json
+data/companies/*.json
+data/interviews/*.json
+data/state.json
+
+# Keep example data
+!data/resume/base.json
+!data/companies/example.json
+!data/analytics/progress.json
+!data/state.json
+
+# Node modules
+node_modules/
+npm-debug.log
+package-lock.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Exports
+exports/
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+*.cache
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Claude Code
+.claude/cache/
+.claude/temp/
